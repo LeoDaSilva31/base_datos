@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<h1>Resultados de la búsqueda</h1>
+<form method="GET" action="{% url 'buscar' %}">
+    <input type="text" name="q" placeholder="Buscar..." value="{{ query }}">
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for result in results %}
+        <li>{{ result.nombre }} {{ result.apellido }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

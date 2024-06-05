@@ -1,0 +1,14 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Detalle{% endblock %}
+
+{% block content %}
+<h1>Detalle del Registro</h1>
+<p>Nombre: {{ registro.nombre }}</p>
+<p>Apellido: {{ registro.apellido }}</p>
+<p>DNI: {{ registro.dni }}</p>
+<p>Fecha de Nacimiento: {{ registro.fecha_nacimiento }}</p>
+<p>PDF: <a href="{{ registro.archivo_pdf.url }}">Descargar</a></p>
+<p>Imagen: <img src="{{ registro.imagen.url }}" alt="Imagen"></p>
+<a href="{% url 'listar' %}" class="btn btn-secondary">Volver</a>
+{% endblock %}

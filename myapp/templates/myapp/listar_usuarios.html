@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Listar Usuarios{% endblock %}
+
+{% block content %}
+<h1>Listar Usuarios</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre de Usuario</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>
+                <a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-warning">Editar</a>
+                <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
